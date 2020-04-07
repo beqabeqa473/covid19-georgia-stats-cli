@@ -6,4 +6,4 @@ Information is taken from http://stopcov.ge website.
 
 # requirements #
 
-you will need to install BeautifulSoup4 and requests to run this script.
+you will need to install BeautifulSoup4 to run this script.

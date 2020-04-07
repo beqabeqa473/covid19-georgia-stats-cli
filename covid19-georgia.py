@@ -1,8 +1,11 @@
 from bs4 import BeautifulSoup
-import requests
+from urllib.request import urlopen as req
 
-res = requests.get("http://stopcov.ge")
-bs4 = BeautifulSoup(res.content, "html.parser")
+url = "http://stopcov.ge"
+res = req(url)
+html = res.read()
+res.close()
+bs4 = BeautifulSoup(html, "html.parser")
 data = list(filter(lambda x: x != '', bs4.find_all("div", class_="statistic-col")[0].text.split('\n')[:-2]))
 cases = data[0].split("-")[1].strip()
 recovered = data[1].split("-")[1].strip()
